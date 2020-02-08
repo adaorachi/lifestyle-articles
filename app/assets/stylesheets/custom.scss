@@ -1,0 +1,147 @@
+/* Global  */
+:root {
+  /* Theme colors */
+  --white: '#fff';
+
+  /* Font-family */
+  --font-header: 'Montserrat', sans-serif;
+  --font-subheader: 'Vollkorn', serif;
+  --font-para: 'Source Sans Pro', sans-serif;
+}
+
+*,
+*::before,
+*::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box
+}
+
+html {
+    font-size: 10px;
+    font-family: "Montserrat", sans-serif;
+    color: #333;
+    scroll-behavior: smooth;
+}
+
+img {
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+}
+
+ul li{
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.wrapper {
+    // margin: 1.8rem;
+}
+
+.flex-item {
+  display: flex;
+  align-items: center;
+}
+
+h2 {
+  font-family: var(--font-header);
+  font-size: 4rem;
+  letter-spacing: -2px;
+  line-height: 1;
+  font-weight: 700;
+}
+
+h4 {
+  font-family: var(--font-subheader);
+  font-weight: 200;
+  font-size: 1.5rem;
+  font-style: italic;
+  margin: 1rem 0 2.5rem;
+  transform: scale(1, 1.1);
+}
+
+p {
+  font-family: var(--font-para);
+  font-size: 1.4rem;
+  color: #666;
+  line-height: 1.5;
+}
+
+/* Header */
+header {
+  position: relative;
+}
+
+nav.nav {
+  // position: absolute;
+  // z-index: 999;
+  padding: 1rem;
+  width: 100%;
+  background: #fff;
+  justify-content: space-between;
+}
+
+.nav .icon,
+.nav .nav-item.brand {
+  display: none;
+}
+
+.nav .nav-brand span{
+  font-size: 3rem;
+  font-family: 'Vollkorn', serif;
+  color: #f25e02;
+  margin-left: 2rem;
+}
+
+.nav .navbar {
+  // width: 100%;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+}
+
+// .nav .navbar .nav-item {
+//   padding: 1rem;
+// }
+.nav .divider {
+  font-weight: bolder;
+  color: #6e6c6a;
+}
+
+.nav .nav-link {
+  position: relative;
+  font-weight: 700;
+  line-height: 1;
+  font-size: 1.3rem;
+  color: #6e6c6a;
+  font-family: var(--font-header);
+  text-transform: uppercase;
+}
+
+.nav .nav-link:hover,
+.nav .nav-link.current {
+  color: #f45e02;
+}
+
+.nav .navbar .nav-link::before{
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.5rem;
+  background-color: #f45e02;
+  width: 100%;
+  height: 2px;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 650ms;
+}
+
+.nav .navbar .nav-link:hover::before,
+.nav .navbar .nav-link.current::before {
+  transform: scaleX(1);
+}
+
