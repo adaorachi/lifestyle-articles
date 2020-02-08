@@ -17,3 +17,23 @@ require("channels")
 // const imagePath = (name) => images(name, true)
 
 require("bootstrap/dist/js/bootstrap")
+
+
+$(document).on('turbolinks:load', function(){
+
+	var fullHeight = function() {
+
+		$('.js-fullheight').css('height', $(window).height());
+		$(window).resize(function(){
+			$('.js-fullheight').css('height', $(window).height());
+		});
+
+	};
+	fullHeight();
+
+	$('.menu-toggler').on('click', function () {
+      $('.navbar-content').toggleClass('open');
+      $(this).toggleClass('open');
+  });
+
+})

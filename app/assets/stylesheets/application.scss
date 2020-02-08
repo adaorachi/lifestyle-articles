@@ -12,5 +12,7 @@
  *
  *= require_tree .
  *= require_self
- *= require bootstrap/scss/bootstrap
  */
+
+ @import "bootstrap/scss/bootstrap";
+ @import 'font_awesome5_webfont';
