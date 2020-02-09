@@ -153,6 +153,16 @@ nav.nav {
   transform: scaleX(1);
 }
 
+// Alert
+.alert.alert-dismissible {
+  margin-bottom: 0;
+  padding: 1.4rem;
+}
+
+.alert {
+  font-size: 1.3rem;
+}
+
 
 @media only screen and (max-width: 768px) {
   h2 {
@@ -254,19 +264,19 @@ nav.nav {
     transform: rotate(45deg) translateX(-0.65rem);
   }
 
-  .open {
-    transform: translateX(0%);
-    opacity: 1;
-    transition: transform, opacity;
-    transition-duration: 650ms;
-  }
+  // .open {
+  //   transform: translateX(0%);
+  //   opacity: 1;
+  //   transition: transform, opacity;
+  //   transition-duration: 650ms;
+  // }
 
-  .close {
-    transform: translateY(-100%);
-    opacity: 0;
-    transition: transform, opacity;
-    transition-duration: 650ms;
-  }
+  // .close {
+  //   transform: translateY(-100%);
+  //   opacity: 0;
+  //   transition: transform, opacity;
+  //   transition-duration: 650ms;
+  // }
 
   
 }

@@ -16,10 +16,11 @@ class UsersController < ApplicationController
       create_session(@user)
       create_cookies(@user)
       flash['alert-success'] = 'Welcome! You are now a member'
-      redirect_to user_path(@user)
+      redirect_to root_path
     else
-      render 'new'
+      render :new
     end
+
   end
 
   def show
