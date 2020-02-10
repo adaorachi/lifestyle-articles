@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'articles/new'
-  get 'articles/show'
   root to: 'home_page#home'
 
   get '/signup', to: 'users#new'
@@ -9,7 +7,9 @@ Rails.application.routes.draw do
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
 
-  resources :users, except: [:new]
+  resources :users
+  resources :articles
+  resources :categories
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

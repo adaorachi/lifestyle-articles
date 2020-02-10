@@ -1,6 +1,9 @@
 class User < ApplicationRecord
   attr_accessor :remember_token
 
+  has_many :articles, foreign_key: 'author_id', dependent: :destroy
+
+
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i.freeze
   validates :name, presence: true, length: { in: 3..50 }
   validates :username, presence: true, length: { in: 3..50 },
