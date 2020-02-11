@@ -15,4 +15,12 @@ module ArticlesHelper
       num
     end
   end
+
+  def comment_count(comment)
+    if comment.count > 0
+      pluralize(comment.count, "Comment")
+    else
+      "No Comment"
+    end
+  end
 end
