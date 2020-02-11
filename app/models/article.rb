@@ -10,4 +10,5 @@ class Article < ApplicationRecord
   validates :category_id, presence: true
 
   scope :category_first_article, ->(category_id) { where('category_id = ? ', category_id).last }
+  scope :category_all_article, ->(category_id) { where('category_id = ? ', category_id) }
 end
