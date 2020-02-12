@@ -3,7 +3,13 @@ class Article < ApplicationRecord
   belongs_to :category
 
   has_many :comments
-  
+
+  has_many :votes, foreign_key: 'article_id', dependent: :destroy
+  has_many :voters, through: :votes, source: :user
+
+  has_many :bookmarks, foreign_key: 'article_id', dependent: :destroy
+  has_many :bookmarked_readers, through: :bookmarks, source: :user
+
   mount_uploader :featured_image, FeaturedImageUploader
 
   validates :title, presence: true, length: { in: 3..50 }

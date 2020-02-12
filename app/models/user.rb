@@ -3,6 +3,12 @@ class User < ApplicationRecord
 
   has_many :articles, foreign_key: 'author_id', dependent: :destroy
 
+  has_many :votes, foreign_key: 'user_id', dependent: :destroy
+  has_many :voted_articles, through: :votes, source: :article
+
+  has_many :bookmarks, foreign_key: 'user_id', dependent: :destroy
+  has_many :bookmarked_articles, through: :bookmarks, source: :article
+
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i.freeze
   validates :name, presence: true, length: { in: 3..50 }
@@ -36,10 +42,26 @@ class User < ApplicationRecord
   def forget_digest_db
     update_attribute(:remember_digest, nil)
   end
+
+  def vote(article)
+    voted_articles << article
+  end
+
+  def unvote(article)
+    voted_articles.delete(article)
+  end
+
+  def voted?(article)
+    voted_articles.include?(article)
+  end
+  
   private
 
   def downcase_email_username
     self.email = email.downcase
     self.username = username.downcase
   end
+
+  
+
 end

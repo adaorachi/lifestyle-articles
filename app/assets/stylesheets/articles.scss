@@ -146,19 +146,35 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: 2.2rem;
-
+      
       > * {
         margin: 0 1rem;
       }
 
-      .view {
+      i {
+        color: #121212;
+        font-size: 2.2rem;
+      }
+
+      i.checked {
+        color: #eb3007;
+      }
+
+      .view,
+      .vote {
         display: flex;
         align-items: center;
       }
 
       .view-no {
         font-size: 1.2rem;
+      }
+
+      .vote-button,
+      .bookmark-button {
+        background: transparent;
+        border: 0;
+        outline: 0;
       }
     }
   }

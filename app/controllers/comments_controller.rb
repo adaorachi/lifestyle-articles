@@ -9,9 +9,12 @@ class CommentsController < ApplicationController
     @comment = article.comments.build(comment_params)
     if @comment.save
       flash[:notice] = 'You commented on this article!'
-      redirect_to(request.referer)
+      respond_to do |format|
+        format.html { redirect_to(request.referer) }
+        format.js
+      end
     else
-      render '/posts'
+      render '/articles'
     end
   end
 
