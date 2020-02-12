@@ -4,13 +4,15 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.6.4'
 
 # Custom gem
-gem "bulma-rails", "~> 0.8.0"
+gem 'jquery-rails'
 gem 'carrierwave', '~> 2.0'
-gem 'simple_form'
+gem 'faker'
 gem 'font_awesome5_rails'
-gem 'impressionist'
 gem 'mini_magick'
+gem 'simple_form'
 gem 'wysiwyg-rails'
+gem "jquery-slick-rails"
+
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.2', '>= 6.0.2.1'

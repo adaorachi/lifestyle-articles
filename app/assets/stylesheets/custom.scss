@@ -1,5 +1,5 @@
 
-$primary_color1: #eb3007;
+$primary_color1: #fd6000;
 $primary_color2: #4e443e;
 $secondary_color1: #fff;
 
@@ -90,7 +90,7 @@ p {
 }
 
 .image.ripple {
-  position: relative;
+  position: absolute;
   width: 100%;
   height: 100%;
   z-index: 100;

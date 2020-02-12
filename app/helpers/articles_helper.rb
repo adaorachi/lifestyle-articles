@@ -1,7 +1,6 @@
 module ArticlesHelper
   def string_length(string, length)
-   s = string.length > length ? "#{string[0..length]}..." : string
-   s
+   string.length > length ? "#{string[0..length]}..." : string
   end
 
   def get_order(num)
@@ -17,10 +16,14 @@ module ArticlesHelper
   end
 
   def comment_count(comment)
-    if comment.count > 0
-      pluralize(comment.count, "Comment")
+    if comment.count.positive?
+      pluralize(comment.count, 'Comment')
     else
-      "No Comment"
+      'No Comment'
     end
+  end
+
+  def min_read(article)
+    (article.length / 100).to_i
   end
 end

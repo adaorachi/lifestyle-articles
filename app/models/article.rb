@@ -20,4 +20,11 @@ class Article < ApplicationRecord
 
   scope :category_first_article, ->(category_id) { where('category_id = ? ', category_id).last }
   scope :category_all_article, ->(category_id) { where('category_id = ? ', category_id) }
+  scope :featured, -> { Vote.group(:article_id).count.keys.first }
+  scope :featured_article, -> { Article.find_by(id: featured) }
+ 
+  def art
+    featured_article
+  end
+  
 end
