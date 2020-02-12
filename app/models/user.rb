@@ -54,7 +54,19 @@ class User < ApplicationRecord
   def voted?(article)
     voted_articles.include?(article)
   end
-  
+
+  def bookmark(article)
+    bookmarked_articles << article
+  end
+
+  def unbookmark(article)
+    bookmarked_articles.delete(article)
+  end
+
+  def bookmarked?(article)
+    bookmarked_articles.include?(article)
+  end
+
   private
 
   def downcase_email_username
