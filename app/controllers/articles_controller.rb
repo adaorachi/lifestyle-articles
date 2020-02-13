@@ -7,7 +7,8 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
     @articles = Article.all
     @comment = Comment.new
-
+    @categories = Category.all
+    
     @pageview = Article.where(author_id: current_user, id: params[:id]).first_or_create
     @pageview.increment!(:views)
   end
