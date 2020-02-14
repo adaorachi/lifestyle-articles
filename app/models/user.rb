@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+  # after_save :save_avatar
+  before_save :downcase_email_username
+
   attr_accessor :remember_token
 
   has_many :articles, foreign_key: 'author_id', dependent: :destroy
@@ -9,6 +12,7 @@ class User < ApplicationRecord
   has_many :bookmarks, foreign_key: 'user_id', dependent: :destroy
   has_many :bookmarked_articles, through: :bookmarks, source: :article
 
+  mount_uploader :avatar, AvatarUploader
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i.freeze
   validates :name, presence: true, length: { in: 3..50 }
@@ -74,6 +78,15 @@ class User < ApplicationRecord
     self.username = username.downcase
   end
 
-  
+  def save_avatar
+    avatar = gravatar_for(self.email)
+    self.update_column(:avatar, avatar)
+  end
+
+  def gravatar_for(email, size: 80)
+    gravatar_id = Digest::MD5::hexdigest(email.downcase)
+    gravatar_url = "https://secure.gravatar.com/avatar/#{gravatar_id}?s=#{size}"
+    gravatar_url
+  end
 
 end

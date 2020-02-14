@@ -12,6 +12,7 @@ gem 'mini_magick'
 gem 'simple_form'
 gem 'wysiwyg-rails'
 gem "jquery-slick-rails"
+gem 'trix-rails', '~> 2.2'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

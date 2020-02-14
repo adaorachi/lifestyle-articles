@@ -3,8 +3,9 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 
-.main-content {
+.main-content.category-articles {
   // min-width: 1150px;
+  transform: translateY(61px);
 
   h1 {
     padding-top: 3rem;
@@ -31,6 +32,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+   
 
     h6 a {
       color: #eb3108;
@@ -44,14 +46,42 @@
     }
 
     p {
-      font-family: 'Raleway', sans-serif;
-      font-size: 1.5rem;
+      font-family: 'Vollkorn', serif;
+      font-size: 1.7rem;
     }
 
-    a {
-      color: #eb3108;
+    a, i, span {
+      
       font-size: 1.3rem;
     }
   }
-
 }
+
+.main-content.article-page {
+  transform: translateY(80px);
+
+  
+}
+
+.category-all-articles {
+  .article-contents {
+    width: 50%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .category-all-articles {
+    .article-contents {
+      width: 100%;
+    }
+  }
+}
+
+@media only screen and (max-width: 575px) {
+  .category-all-articles {
+    .article-cont {
+      order: 1;
+    }
+  }
+}
+

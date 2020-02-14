@@ -29,6 +29,11 @@
   width: 40%;
 }
 
+.login-html.edit-form {
+  width: 100%;
+  flex-basis: initial;
+}
+
 .login-html {
 
   .sign-in-form,
@@ -268,6 +273,21 @@
     text-decoration: none;
     color: #aaa;
   }
+}
+
+.facebook,
+.facebook:hover {
+  color: #4863ae;
+}
+
+.linkedin,
+.linkedin:hover {
+  color: #0083a8;
+}
+
+.twitter,
+.twitter:hover {
+  color: #46c0fb;
 }
 
 

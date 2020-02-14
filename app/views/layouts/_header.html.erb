@@ -1,4 +1,3 @@
-<% if controller_name != 'sessions' && controller_name != 'users'%>
   <div class="wrapper">
     <header class="header-nav">
       <nav class="nav flex-item">
@@ -28,58 +27,58 @@
           </div>
           <ul class="navbar nav-links">
             <li class="nav-item">
-              <a href="#home" class="nav-link current">Home</a>
+              <a href="/" class="nav-link current">Home</a>
             </li>
-            <li class="nav-item">
-              <a href="#about" class="nav-link">About</a>
-            </li>
-            <li class="nav-item">
-              <a href="#services" class="nav-link">Services</a>
-            </li>
-            <li class="nav-item">
-              <a href="#portfolio" class="nav-link">Portfolio</a>
-            </li>
-            <li class="nav-item">
-              <a href="#contact" class="nav-link">Contact</a>
-            </li>
+            <% Category.all.each do |link| %>
+              <li class="nav-item">
+                <%= link_to link.name.capitalize, categories_path(category: link.name.capitalize), class: "nav-link"%>
+              </li>
+            <% end %>
           </ul>
           <ul class="navbar reg-items">
-          <% if logged_in? %>
-            <li class="nav-item profile">
-              <%= image_tag('https://cdn-images-1.medium.com/fit/c/64/64/2*zHvL82OxLLlRKP443IE88g.jpeg', alt: "profile-image", class: 'profile-img-lg') %> 
-              <ul class="navbar profile-dropdown">
-                <li class="nav-item profile-name-content">
-                  <%= image_tag('https://cdn-images-1.medium.com/fit/c/64/64/2*zHvL82OxLLlRKP443IE88g.jpeg', alt: "profile-image", class: 'profile-img-sm') %> 
-                  <div class="profile-name"> 
-                    <span><%= @current_user.name %></span>
-                    </span>@<%= @current_user.username %></span>
-                  </div>
-                </li>
-                <li class="nav-item prof">
-                  <%= link_to "Dashboard", logout_path, class: "nav-link" %> 
-                </li>
-                <li class="nav-item prof">
-                  <%= link_to "Write An Article", new_article_path, class: "nav-link" %> 
-                </li>
-                 <li class="nav-item prof">
-                  <%= link_to "Your Articles", logout_path, class: "nav-link" %> 
-                </li>
-                 <li class="nav-item prof">
-                  <%= link_to "Your Bookmarks", logout_path, class: "nav-link" %> 
-                </li>
-                 <li class="nav-item prof">
-                  <%= link_to "Replies", logout_path, class: "nav-link" %> 
-                </li>
-                 <li class="nav-item prof">
-                  <%= link_to "Account", logout_path, class: "nav-link" %> 
-                </li>
-                 <li class="nav-item last prof">
-                  <%= link_to "Logout", logout_path, class: "nav-link", method: :delete %> 
-                </li>
-              </ul>
+            <li class="nav-item">
+              <%= form_tag(search_path, method: :get, class: 'form-inline') do %>
+                <div class="search-form">
+                  <%= text_field_tag :q, params[:q], class: "form-control search-input", placeholder:"Search" %>
+                  <%= button_tag "", :name => nil, class: "btn btn-secondary search-button" do %>
+                    <%= fa_icon("search", class: "search-icon text-secondary") %>
+                  <% end %>
+                </div>
+              <% end %>
             </li>
+            <% if logged_in? %>
+              <li class="nav-item profile">
+                <%= avatar(current_user) %> 
+                <ul class="navbar profile-dropdown">
+                  <li class="nav-item profile-name-content">
+                    <%= avatar(current_user, class_name: 'profile-img-sm') %> 
+                    <div class="profile-name"> 
+                      <span><%= @current_user.name %></span>
+                      </span>@<%= @current_user.username %></span>
+                    </div>
+                  </li>
+                  <li class="nav-item prof">
+                    <%= link_to "Profile", user_path(current_user), class: "nav-link" %> 
+                  </li>
+                  <li class="nav-item prof">
+                    <%= link_to "Write An Article", new_article_path, class: "nav-link" %> 
+                  </li>
+                  <li class="nav-item prof">
+                    <%= link_to "Your Articles", published_articles_path, class: "nav-link" %> 
+                  </li>
+                  <li class="nav-item prof">
+                    <%= link_to "Your Archives", saved_articles_path, class: "nav-link" %> 
+                  </li>
+                  <li class="nav-item prof">
+                    <%= link_to "Your Bookmarks", bookmarks_path, class: "nav-link" %> 
+                  </li>
+                  <li class="nav-item last prof">
+                    <%= link_to "Logout", logout_path, class: "nav-link", method: :delete %> 
+                  </li>
+                </ul>
+              </li>
 
-          <% else %>
+            <% else %>
             <li class="nav-item">
               <%= link_to "Login", login_path, class: "nav-link" %>
             </li>
@@ -95,4 +94,3 @@
       </nav>
     </header>
   </div>
-<% end %>

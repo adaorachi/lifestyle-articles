@@ -25,15 +25,18 @@
           
         </div>
         <div class="col-12 col-lg-4 mt-5">
-          <div class="article-featured-image" id="article-featured">
-            <% unless @article.featured_image.blank? %>
-              <%= image_tag(@article.featured_image_url, id: "previewImage") %>
-            <% end %>                     
-            <div id="display-img" class="display-img"></div>
-            <%= f.file_field :featured_image, id: "article-image", class: "file-input" %>
-            <div id="drop_zone">
-              Add Featured Image
+          <div class="article-featured-image" id="article-featured">                  
+            <div id="display-img" class="display-img">
+               <% unless @article.featured_image.blank? %>
+                  <%= image_tag(@article.featured_image_url, id: "previewImage") %>
+                <% end %>   
             </div>
+            <%= f.file_field :featured_image, id: "article-image", class: "file-input" %>
+             <% if @article.featured_image.blank? %>
+              <div id="drop_zone">
+                Add Featured Image
+              </div>
+            <% end %>
           </div>
 
            <div class="group">

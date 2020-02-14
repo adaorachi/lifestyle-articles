@@ -12,11 +12,16 @@ Rails.application.routes.draw do
     post :increment 
   end
 
+  get 'published_articles', to: 'articles#published_articles'
+  get 'saved_articles', to: 'articles#saved_articles'
+  get 'bookmarks', to: 'articles#bookmarks'
 
   resources :categories
   resources :comments
   resources :votes, only: [:create, :destroy]
   resources :bookmarks, only: [:create, :destroy]
+  resources :tags
 
+  get 'search', to: 'articles#search'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
