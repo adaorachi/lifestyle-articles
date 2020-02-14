@@ -4,7 +4,6 @@
 // that code so it'll be compiled.
 
 require("@rails/ujs").start()
-require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 require("bootstrap/dist/js/bootstrap")
@@ -22,7 +21,7 @@ require("bootstrap/dist/js/bootstrap")
 //= require froala_editor.min.js
 
 
-$(document).on('turbolinks:load', function(){
+$(document).ready(function(){
 
 	$('.menu-toggler').on('click', function () {
       $('.navbar-content').toggleClass('open');
