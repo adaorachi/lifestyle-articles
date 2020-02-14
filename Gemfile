@@ -12,6 +12,7 @@ gem 'mini_magick'
 gem 'simple_form'
 gem 'wysiwyg-rails'
 gem 'trix'
+gem 'ckeditor'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

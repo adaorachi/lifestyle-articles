@@ -20,7 +20,7 @@
             <%= f.text_field :title, autocomplete: 'off', maxlength: "60", class: "input", placeholder: "Title" %>
           </div>
           <div class="group">
-            <%= f.text_area :text,class: "input", id: "article-text-area" %>
+            <%= f.text_area :text,class: "input", id: "article-text-area", placeholder: "Tell your story" %>
             <%# <trix-editor input="article-text-area"></trix-editor> %>
           </div>
           
@@ -71,10 +71,13 @@
 <script type="text/javascript" src = "../../assets/froala_editor.pkgd.min.js"></script>
 
 <script>
- new FroalaEditor('#article-text-area', {
+$(document).ready(function(){
+  new FroalaEditor('#article-text-area', {
     placeholderText: 'Tell your story...',
     heightMin: 100,
     heightMax: 300,
     height: 300
   })
+})
+ 
 </script>
