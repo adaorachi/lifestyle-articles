@@ -12,7 +12,6 @@ gem 'mini_magick'
 gem 'simple_form'
 gem 'wysiwyg-rails'
 gem 'trix'
-gem 'carrierwave-aws'
 gem 'fog-aws'
 
 

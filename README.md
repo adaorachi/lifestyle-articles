@@ -115,4 +115,4 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
-I would like to credit <a href="https://www.behance.net/sakwadesignstudio">Nelson Sakwa</a>for his behance design ideas which I used in creating this app. The project's color, typograpy and layouts were gotten from this design. The design can be seen <a href="https://www.behance.net/gallery/14554909/liFEsTlye-Mobile-version"></a>. I really love the design.
+I would like to credit <a href="https://www.behance.net/sakwadesignstudio">Nelson Sakwa</a> for his behance design ideas which I used in creating this app. The project's color, typograpy and layouts were gotten from this design. The design can be seen <a href="https://www.behance.net/gallery/14554909/liFEsTlye-Mobile-version"></a>. I really love the design.
