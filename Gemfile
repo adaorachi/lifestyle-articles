@@ -12,6 +12,8 @@ gem 'mini_magick'
 gem 'simple_form'
 gem 'wysiwyg-rails'
 gem 'trix'
+gem 'carrierwave-aws'
+gem 'fog-aws'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
