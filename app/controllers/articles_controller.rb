@@ -1,4 +1,7 @@
 class ArticlesController < ApplicationController
+  before_action :logged_in_user_for_bookmark, only: [:bookmarks]
+  before_action :logged_in_user, except: [:show, :bookmarks, :search]
+
   def new
     @article = Article.new
   end
@@ -14,7 +17,6 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    # @article = Article.new
     @article = current_user.articles.build(article_params)
     if params[:save_button]
       @article.status = 'saved'
@@ -73,14 +75,21 @@ class ArticlesController < ApplicationController
     @search_articles = Article.search_article(params[:q])
   end
 
+  private
+
+  def article_params
+    params.required(:article).permit(:title, :text, :tag, :featured_image, :tag_list, :category_id, :author_id, :status)
+  end
+
   def increment
     @pageview = Article.where(author_id: current_user, id: params[:id]).first_or_create
     @pageview.increment!(:views)
   end
 
-  private
-
-  def article_params
-    params.required(:article).permit(:title, :text, :tag, :featured_image, :tag_list, :category_id, :author_id, :status)
+  def logged_in_user_for_bookmark
+    unless logged_in?
+      flash['alert-danger'] = 'You must be logged in to bookmark an article!'
+      redirect_to(request.referer)
+    end
   end
 end

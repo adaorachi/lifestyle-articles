@@ -23,10 +23,25 @@ require("bootstrap/dist/js/bootstrap")
 
 
 $(document).on('turbolinks:load', function(){
+	var searchWidth = $(".search-form").width();
+	$('.psuedo-search-button').on('click', function(){
+		$(this).hide()
+		$('.search-hide').hide()
+		$(".search-form").show()
+	})
+
+	$(document).on("click", function(event){
+		var $trigger = $(".search-contents");
+		if($trigger !== event.target && !$trigger.has(event.target).length){
+				$(".search-form").hide();
+				$('.search-hide').show()
+				$('.psuedo-search-button').show()
+		}            
+	});
 
 	$('.menu-toggler').on('click', function () {
-      $('.navbar-content').toggleClass('open');
-      $(this).toggleClass('open');
+		$('.navbar-content').toggleClass('open');
+		$(this).toggleClass('open');
 	});
 	
 	$(document).scroll(function (){
@@ -37,7 +52,7 @@ $(document).on('turbolinks:load', function(){
 			$('.nav-link').addClass('scrolled')
 		} else if ($(this).scrollTop() < 200 && $(this).scrollTop() >= $nav.height()) {
 			$nav.removeClass('scrolled');
-			$('.nav-links .nav-link').removeClass('scrolled')
+			$('.nav-link').removeClass('scrolled')
 			$nav.addClass('none');
 		}else{
 			$nav.removeClass('scrolled');

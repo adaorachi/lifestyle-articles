@@ -18,8 +18,8 @@ Rails.application.routes.draw do
 
   resources :categories
   resources :comments
-  resources :votes, only: [:create, :destroy]
-  resources :bookmarks, only: [:create, :destroy]
+  resources :votes, only: [:index, :create, :destroy]
+  resources :bookmarks, only: [:index, :create, :destroy]
   resources :tags
 
   

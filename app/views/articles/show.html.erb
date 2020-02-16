@@ -19,14 +19,22 @@
                 <%= fa_icon('eye') %> &nbsp; <span class="view-no"><%= @article.views %></span>
               </div>
               <div class="vote-form" id="vote_form">
-
+              <% if current_user %>
                 <%= render partial: 'vote_form', locals: {article: @article} %>
-
+              <% else %>
+                <%= link_to votes_path do %>
+                  <%= button_tag fa_icon('arrow-alt-circle-up',  type: :regular), class: "vote-button" %>
+                <% end %>
+              <% end %>
               </div>
               <div class="bookmark-form" id="bookmark_form">
-
+                <% if current_user %>
                  <%= render partial: 'bookmark_form', locals: {article: @article} %>
-                
+                 <% else %>
+                  <%= link_to bookmarks_path do %>
+                    <%= button_tag fa_icon("bookmark"), class: "vote-button" %>
+                  <% end %>
+                <% end %>
               </div>
             </div>
           </div>

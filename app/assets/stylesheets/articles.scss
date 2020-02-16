@@ -272,7 +272,6 @@
     .comment-body span {
       font-weight: lighter;
       text-transform: uppercase;
-      // margin-top: 0.8rem;
     }
   }
 
@@ -281,7 +280,10 @@
   }
 }
 
-  .suggested-articles {
+
+// Suggested Articles
+
+.suggested-articles {
     .card-title {
       font-size: 1.5rem;
       color: #eb3007;
@@ -297,7 +299,7 @@
     }
 
     .image.ripple.suggested-image {
-      position: relative;
+      height: 120px;
     }
   }
 
@@ -339,6 +341,21 @@
     }
   }
 
- 
+  @media only screen and (max-width: 748px) {
+    .suggested-article-content {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-column-gap: 10px;
+    }
+  }
 
-// $font-subheader: 'Vollkorn', serif;
+  @media only screen and (max-width: 530px) {
+    .suggested-article-content {
+      grid-template-columns: repeat(1, 1fr);
+      img {
+        height: 150px;
+      }
+    }
+  }
+
+ 
