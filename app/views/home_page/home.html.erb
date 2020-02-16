@@ -18,7 +18,7 @@
           <% @categories.each do |category| %>
             <% if category.articles.present? %>
               <div class="first-article-content section-content">
-                <%= link_to categories_path(category: category.name) do %>
+                <%= link_to categories_path(name: category.name) do %>
                   <div class="image ripple">
                   </div>
                   <div class="cat-image">

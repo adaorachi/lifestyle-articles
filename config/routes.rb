@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
 
-  resources :users
+  resources :users, except: [:show, :edit]
   resources :articles do
     post :increment 
   end
@@ -15,6 +15,9 @@ Rails.application.routes.draw do
   get 'published_articles', to: 'articles#published_articles'
   get 'saved_articles', to: 'articles#saved_articles'
   get 'bookmarks', to: 'articles#bookmarks'
+
+  get 'profile', to: 'users#show'
+  get '/edit_profile', to: 'users#edit'
 
   resources :categories
   resources :comments

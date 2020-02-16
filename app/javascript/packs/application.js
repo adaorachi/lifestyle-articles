@@ -27,7 +27,8 @@ $(document).on('turbolinks:load', function(){
 	$('.psuedo-search-button').on('click', function(){
 		$(this).hide()
 		$('.search-hide').hide()
-		$(".search-form").show()
+		$(".search-form").css({'display' : 'flex'});
+
 	})
 
 	$(document).on("click", function(event){

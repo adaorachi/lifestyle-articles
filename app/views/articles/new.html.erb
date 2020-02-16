@@ -26,16 +26,18 @@
           
         </div>
         <div class="col-12 col-lg-4 mt-5">
-          <div class="article-featured-image" id="article-featured">
-            <% unless @article.featured_image.blank? %>
-              <%= image_tag(@article.featured_image_url, id: "previewImage") %>
-            <% end %>                     
-            <div id="display-img" class="display-img"></div>
-            <%= f.file_field :featured_image, id: "article-image", class: "file-input" %>
-            <div id="drop_zone">
-              Add Featured Image
+           <div class="article-featured-image" id="article-featured">
+              <div id="display-avatar" class="display-avatar">
+                <% unless @article.featured_image.blank? %>
+                  <%= image_tag(@article.featured_image_url, id: "previewImage") %>
+                <% end %>  
+              </div>                   
+              <div id="display-img" class="display-img"></div>
+              <%= f.file_field :featured_image, id: "article-image", class: "article-image file-input" %>
+              <div id="drop_zone" class="drop-zone">
+                <h2>Add Featured Image</h2>
+              </div>
             </div>
-          </div>
 
            <div class="group">
             <div class="input-group mb-2">
@@ -71,11 +73,11 @@
 <script type="text/javascript" src = "../../assets/froala_editor.pkgd.min.js"></script>
 
 <script>
-  // new FroalaEditor('#article-text-area', {
-  //   placeholderText: 'Tell your story...',
-  //   heightMin: 100,
-  //   heightMax: 300,
-  //   height: 300
-  // })
+  new FroalaEditor('#article-text-area', {
+    placeholderText: 'Tell your story...',
+    heightMin: 100,
+    heightMax: 300,
+    height: 300
+  })
  
 </script>

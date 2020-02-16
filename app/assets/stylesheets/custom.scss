@@ -135,6 +135,7 @@ p {
   justify-content: space-between;
   padding: 0.8rem;
   width: 100%;
+  flex-wrap: nowrap!important;
   background-color: $secondary_color1;
   position: fixed;
   z-index: 100;
@@ -306,7 +307,6 @@ p {
   .search-form {
     margin-right: 10px;
     display: none;
-    transition: display 650ms;
 
     input{
       font-size: 1.3rem;
@@ -324,6 +324,7 @@ p {
     vertical-align: middle;
     text-align: center;
     border-radius: 3px;
+    margin-right: 1rem;
     color: #fff;
     background: $primary_color1;
     cursor: pointer;

@@ -103,7 +103,7 @@
     }
   }
 
-  #drop_zone {
+  .drop-zone {
     position: absolute;
     top: 0;
     width: 300px;
@@ -350,6 +350,15 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       grid-column-gap: 10px;
+    }
+
+    .new-article {
+      .article-image,
+      .drop-zone, 
+      .display-avatar {
+        width: 100%;
+        height: 100%;
+    }
     }
   }
 

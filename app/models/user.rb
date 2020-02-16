@@ -1,5 +1,4 @@
 class User < ApplicationRecord
-  # after_save :save_avatar
   before_save :downcase_email_username
 
   attr_accessor :remember_token
