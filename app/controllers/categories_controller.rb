@@ -1,6 +1,6 @@
 class CategoriesController < ApplicationController
   def index
-    cat = params[:category]
+    cat = params[:name]
     @category = Category.find_by(name: cat)
     @categories = Category.all
   end

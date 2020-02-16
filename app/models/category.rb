@@ -1,10 +1,15 @@
 class Category < ApplicationRecord
-  has_many :articles, dependent: :destroy
+  before_save :downcase_category_name
 
-  has_many :event_attendees, foreign_key: 'attended_event_id', dependent: :destroy
-  has_many :attendees, through: :event_attendees
+  has_many :articles, dependent: :destroy
 
   validates :name, presence: true
   validates :priority, presence: true
+
+  private
+
+  def downcase_category_name
+    self.name = name.downcase
+  end
   
 end

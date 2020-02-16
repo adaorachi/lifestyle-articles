@@ -2,6 +2,13 @@
 
 .main-content {
   transform: translateY(61px);
+  min-height: 50vh;
+
+  .no-article-text {
+    transform: translateY(60px);
+    padding: 6rem;
+  }
+
   
   .categories-first-article {
     display: flex;

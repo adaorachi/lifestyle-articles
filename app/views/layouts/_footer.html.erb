@@ -19,7 +19,7 @@
               <h3 class="title">Categories</h3>
                 <ul class="category-content list-group list-group-flush">
                 <% Category.all.each do |category| %>
-                <%= link_to categories_path(category: category.name), class: "category-links" do %>
+                <%= link_to categories_path(name: category.name), class: "category-links" do %>
                   <li class="category-list list-group-item"><%= category.name.capitalize %></li>
                 <% end %>
                   <% end %>

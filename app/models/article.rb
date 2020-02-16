@@ -49,6 +49,15 @@ class Article < ApplicationRecord
     self.tags = new_or_found_tags
   end
 
+  def all_suggested_article(category_id, article)
+    suggested_art_arr = []
+    suggested_art_arr.concat(Article.suggested_articles(category_id) - [article])
+    article.tags.each do |tag|
+      suggested_art_arr << tag.articles
+    end
+    suggested_art_arr.flatten.uniq - [article]
+  end
+
   def self.search_article(search)
     split_search = search.downcase.split(" ")
     if all_published_articles.pluck(:title).include?(split_search[0])

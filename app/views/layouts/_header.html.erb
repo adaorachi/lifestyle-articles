@@ -31,7 +31,7 @@
             </li>
             <% Category.all.each do |link| %>
               <li class="nav-item">
-                <%= link_to link.name.capitalize, categories_path(category: link.name.capitalize), class: "nav-link"%>
+                <%= link_to link.name.capitalize, categories_path(name: link.name), class: "nav-link"%>
               </li>
             <% end %>
           </ul>
@@ -71,7 +71,7 @@
               <li class="nav-item reg-links">
                 <%= link_to "Login", login_path, class: "nav-link search-hide" %>
               </li>
-              <li class="nav-item divider search-hide reg-links">
+              <li class="nav-item divider reg-links">
                 <span>|</span>
               </li>
               <li class="nav-item reg-links">
