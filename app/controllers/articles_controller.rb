@@ -1,6 +1,7 @@
 class ArticlesController < ApplicationController
   before_action :logged_in_user_for_bookmark, only: [:bookmarks]
   before_action :logged_in_user, except: [:show, :bookmarks, :search]
+  before_action :non_editing_published_articles, only: [:edit, :update]
 
   def new
     @article = Article.new
@@ -92,4 +93,13 @@ class ArticlesController < ApplicationController
       redirect_to(request.referer)
     end
   end
+
+  def non_editing_published_articles
+    @article = Article.find(params[:id])
+    unless @article.status != 'published'
+      flash['alert-danger'] = 'You cannnot edit a published article!'
+      redirect_to article_path(@article)
+    end
+  end
+  
 end

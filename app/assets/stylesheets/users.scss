@@ -274,8 +274,8 @@
 // Profile Page
 
 .login-html .profile-avatar,
-.display-avatar,
-.article-featured-image {
+.display-avatar {
+
   width: 200px;
   height: 200px;
 }
@@ -340,19 +340,14 @@
       height: 1px;
       background: #aaa;
     }
-
   }
-
 }
-
-
 
 @media only screen and (max-width: 530px) {
   .login-html {
 
     .profile-avatar,
     .display-avatar,
-    .article-featured-image,
     .user-avatar {
       max-width: 200px;
       width: auto;

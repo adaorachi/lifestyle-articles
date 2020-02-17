@@ -6,6 +6,10 @@ class Category < ApplicationRecord
   validates :name, presence: true
   validates :priority, presence: true
 
+  def name_with_caps
+    self.name.capitalize
+  end
+
   private
 
   def downcase_category_name

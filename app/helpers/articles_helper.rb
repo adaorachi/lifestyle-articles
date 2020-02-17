@@ -4,7 +4,6 @@ module ArticlesHelper
     string_sanitize.length > length ? "#{string_sanitize[0..length]}..." : string_sanitize
   end
 
-
   def get_order_1(num)
     num.odd? ? 2 : 1
   end

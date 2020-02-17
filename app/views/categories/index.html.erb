@@ -7,11 +7,11 @@
     <% if Article.category_all_article(@category).any? %>
     <div class="category-all-articles d-flex flex-wrap mb-5">
       <% Article.category_all_article(@category).each_with_index do |article, index| %>
-        <div class="article-contents d-flex flex-row flex-wrap order-md-<%= parent_order_sm(index+1) %> order-xl-<%= parent_order_lg(index+1)%>">
-          <div class="article-cont p-0 col-12 col-sm-6 order-<%= get_order_1(index) %> order-lg-<%= get_order_1(index) %>">
+        <div class="article-contents d-flex flex-row flex-wrap order-md-<%= parent_order_sm(index+1) %> order-xl-<%= parent_order_sm(index+1)%>">
+          <div class="article-cont p-0 col-12 col-sm-6 order-<%= get_order_1(index) %> order-xl-<%= get_order_1(index) %>">
             <%= image_tag(article.featured_image_url, alt: article.title, class: "img-fluid") %>
           </div>
-          <div class="article-cont p-0 col-12 col-sm-6 order-<%= get_order_2(index) %> order-lg-<%= get_order_2(index) %>">
+          <div class="article-cont p-0 col-12 col-sm-6 order-<%= get_order_2(index) %> order-xl-<%= get_order_2(index) %>">
             <div class="article-item-desc">
               <h6><%= link_to article.title.titleize, article_path(article) %></h6>              
               <p><%= string_length(article.text, 80) %></p>
