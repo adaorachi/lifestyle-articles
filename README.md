@@ -47,8 +47,8 @@ This is the link to the live preview in Heroku. Feel free to visit.<br>
   </thead>
   <tbody>
     <tr>
-      <td rowspan=5><img src="app/assets/images/sleezy-app.jpg" alt="Larger Screen View"></td>
-      <td rowspan=3><img src="app/assets/images/sleezy-app-recording.gif" alt="Smaller Screen View"></td>
+      <td rowspan=3><img src="app/assets/images/sleezy-app.jpg" alt="Larger Screen View"></td>
+      <td rowspan=2><img src="app/assets/images/sleezy-app-recording.gif" alt="Smaller Screen View"></td>
     </tr>
   </tbody>
 </table>
