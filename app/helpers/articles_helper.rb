@@ -53,7 +53,7 @@ module ArticlesHelper
     searched_info = ''
     if searched_count.present?
       searched_info = "Search for \"#{search}\"<br> "
-      searched_info += "Result for #{pluralize(searched_count.count, 'user')}"
+      searched_info += "Result for #{pluralize(searched_count.count, 'article')}"
     else
       if search.present?
         searched_info = "No search for \"#{search}\""

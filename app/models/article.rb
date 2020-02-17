@@ -60,9 +60,11 @@ class Article < ApplicationRecord
 
   def self.search_article(search)
     split_search = search.downcase.split(" ")
-    if all_published_articles.pluck(:title).include?(split_search[0])
-      all_published_articles.pluck(:title)
+    arr = []
+    self.all_published_articles.each do |article|
+      split_search.map { |word| arr << article if article.title.downcase.split(' ').include?(word) }
     end
+    arr.uniq
   end
 
 end

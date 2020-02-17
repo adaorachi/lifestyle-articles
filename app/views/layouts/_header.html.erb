@@ -82,19 +82,19 @@
           </ul>
          
         </div>
-         <li class="nav-item search-contents">
-              <%= form_tag(search_path, method: :get, class: 'form-inline') do %>
-                <div class="search-form">
-                 <%= text_field_tag :q, params[:q], class: "form-control search-input", placeholder:"Search" %>
-                  <%= button_tag "", :name => nil, class: "btn search-button" do %>
-                    <%= fa_icon("search", class: "search-icon") %>
-                  <% end %>
-                </div>
-              <% end %>
-              <div class="psuedo-search-button">
+        <div class="nav-item search-contents">
+          <%= form_tag(search_path, method: :get, class: 'search-form') do %>
+            <div class="search-form-content">
+              <%= text_field_tag :q, params[:q], class: "form-control search-input", placeholder:"Search" %>
+              <%= button_tag "", :name => nil, class: "btn search-button" do %>
                 <%= fa_icon("search", class: "search-icon") %>
-              </div>
-            </li>
+              <% end %>
+            </div>
+          <% end %>
+          <div class="psuedo-search-button">
+            <%= fa_icon("search", class: "search-icon") %>
+          </div>
+        </div>
       </nav>
     </header>
   </div>
