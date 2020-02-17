@@ -30,20 +30,37 @@ This project is a Lifestyle Articles application. In this project, users can sig
 * Ruby
 * Ruby on Rails
 
+
 <!-- LIVE PREVIEW -->
 ## Live Preview
 
 This is the link to the live preview in Heroku. Feel free to visit.<br>
 <a href="https://sleezy-lifestyle.herokuapp.com">Sleezy - Lifestyle Articles Web App</a> <br>
-<p>Below is the HomePage Screenshot</p>
-<img src="app/assets/images/sleezy-app.jpg" alt="Sleezy">
+<p>Below are the HomePage Screenshots</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Larger Screen View</th>
+      <th>Smaller Screen View</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td rowspan=4><img src="app/assets/images/sleezy-app.jpg" alt="Larger Screen View"></td>
+      <td rowspan=2><img src="app/assets/images/sleezy-app-recording.gif" alt="Smaller Screen View"></td>
+    </tr>
+  </tbody>
+</table>
 
 ## Features
 
-* Users can signup/login and create articles to publish or save for future editing.
-* Users can vote an article they like and also bookmark articles for future reads.
+* Users can signup/login and create articles to publish.
+* Users can save articles for future editing.
+* Users can vote an article.
+* Users bookmark articles for future reads.
 * Readers/Users can comment on articles.
-* Users can search for articles with the search input by their title.
+* Users can search for articles by their titles.
 
 <!-- ERD -->
 ## Data Architecture Documentation (ERD)
