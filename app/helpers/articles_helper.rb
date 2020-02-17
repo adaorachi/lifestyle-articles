@@ -26,13 +26,13 @@ module ArticlesHelper
 
   def parent_order_sm(num)
     if ((num - 1) % 4).zero?
-      1
+      1 + (num-1)
     elsif ((num - 2) % 4).zero?
-      3
+      3 + (num-2)
     elsif ((num - 3) % 4).zero?
-      2
+      2 + (num-3)
     elsif ((num - 4) % 4).zero?
-      4
+      4 + (num-4)
     end
   end
 

@@ -104,7 +104,7 @@ $(document).on('turbolinks:load', function(){
 			$('#display-avatar').html(img);
     }
     reader.readAsDataURL(image);
-  });
+	});
 	
 })
 
