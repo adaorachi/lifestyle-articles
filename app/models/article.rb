@@ -26,7 +26,7 @@ class Article < ApplicationRecord
   scope :user_saved_articles, ->(user_id) { where('id = ? and status = ? ', user_id, 'saved') }
   scope :category_first_article, ->(category_id) { where('category_id = ? and status = ?', category_id, 'published').first }
   scope :category_all_article, ->(category_id) { where('category_id = ? and status = ?', category_id, 'published') }
-  scope :featured, -> { Vote.group(:article_id).count.keys.first }
+  scope :featured, -> { Vote.group(:article_id).count.sort_by{|k,v| v}.last.first }
   scope :featured_article, -> { find_by(id: featured, status: 'published') }
   scope :most_popular, ->  { Vote.group(:article_id).count.keys.take(5) }
   scope :most_popular_articles, -> { where(id: most_popular) }

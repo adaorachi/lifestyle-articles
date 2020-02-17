@@ -3,6 +3,7 @@
     <section class="categories-article">
       <div class="categories-article-items">
         <div class="featured-article-content section-content">
+        <%= Article.featured%>
           <%= link_to article_path(Article.featured_article.id) do %>
             
             <div class="image featured-article-image">
