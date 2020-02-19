@@ -6,17 +6,17 @@
         <div class="card-header">
           <p>
           <strong>
-            <%= search_info(params[:q], @search_articles) %>
+            <%= search_info(@search_param, @search_articles) %>
           </strong>
           </p>
         </div>
       </div>
-      <% if @search_articles.present? %>
+      <% if article_present(@search_articles) %>
         <div class="card">
           <div class="card-header d-flex flex-column">
           
             <ul class="list-group list-group-flush non-friends-list">
-              <% Article.search_article(params[:q]).each do |article| %>
+              <% @search_articles.each do |article| %>
               
                 <li class="list-group-item">
                   <div class="post-creator">

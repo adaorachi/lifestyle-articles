@@ -12,19 +12,7 @@ module ArticlesHelper
     num.odd? ? 1 : 2
   end
 
-  def parent_order_lg(num)
-    if ((num - 1) % 4).zero?
-      num + 1
-    elsif ((num - 2) % 4).zero?
-      num - 1
-    elsif ((num - 3) % 4).zero?
-      num
-    elsif ((num - 4) % 4).zero?
-      num
-    end
-  end
-
-  def parent_order_sm(num)
+  def parent_order(num)
     if ((num - 1) % 4).zero?
       1 + (num-1)
     elsif ((num - 2) % 4).zero?
@@ -63,4 +51,25 @@ module ArticlesHelper
     end
     searched_info.html_safe
   end
+
+  def article_present(article)
+    article.any?
+  end
+
+  def category_article_limit(article, limit)
+    article[0..limit]
+  end
+
+  def article_random(article, num)
+    article.sample(num)
+  end
+
+  def count_all(model)
+    model.count
+  end
+
+  def get_strftime(model, time_mode)
+    model.strftime(time_mode)
+  end
+
 end

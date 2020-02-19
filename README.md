@@ -94,7 +94,7 @@ your@pc:~$ git clone https://github.com/adaorachi/lifestyle-articles
 Move to the downloaded folder
 
 ```Shell
-your@pc:~$ cd facebook_clone
+your@pc:~$ cd lifestyle-articles
 ```
 
 install gems

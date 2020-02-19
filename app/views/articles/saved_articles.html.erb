@@ -1,13 +1,13 @@
 <div class="main-content category-articles">
   <div class="category-articles-all">
-    <% if Article.user_save_articles(current_user).any? %>
+    <% if article_present(@saved_articles) %>
       <div class="section-heading text-center py-4">
         <h2 class="display-4 py-4">Your Saved Articles</h2>
       </div>
 
       <div class="category-all-articles d-flex flex-wrap mb-5">
-        <% Article.user_save_articles(current_user).each_with_index do |article, index| %>
-          <div class="article-contents d-flex flex-row flex-wrap order-md-<%= parent_order_sm(index+1) %> order-xl-<%= parent_order_sm(index+1)%>">
+        <% @saved_articles.each_with_index do |article, index| %>
+          <div class="article-contents d-flex flex-row flex-wrap order-md-<%= parent_order(index+1) %> order-xl-<%= parent_order(index+1)%>">
           <div class="article-cont p-0 col-12 col-sm-6 order-<%= get_order_1(index) %> order-xl-<%= get_order_1(index) %>">
             <%= image_tag(article.featured_image_url, alt: article.title, class: "img-fluid") %>
           </div>
@@ -18,10 +18,10 @@
               <span>By  <%= article.author.name %></span>
               <div class="attr d-flex justify-content-start align-items-center">
                 <span class="view">
-                  <%= fa_icon('arrow-alt-circle-up') %> &nbsp; <span class="view-no"><%= article.votes.count %></span>
+                  <%= fa_icon('arrow-alt-circle-up') %> &nbsp; <span class="view-no"><%= count_all(article.votes) %></span>
                 </span>
                 <span class="comment">
-                  <%= fa_icon('comment-alt') %> &nbsp; <span class="view-no"><%= article.comments.count %></span>
+                  <%= fa_icon('comment-alt') %> &nbsp; <span class="view-no"><%= count_all(article.comments) %></span>
                 </span>
                 <span class="min-read">
                   <%= min_read(article.text) %> mins read

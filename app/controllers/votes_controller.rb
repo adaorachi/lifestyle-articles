@@ -13,6 +13,9 @@ class VotesController < ApplicationController
       format.html { redirect_to(request.referer) }
       format.js
     end
+
+    @category_priority = @article.category
+    @category_priority.increment!(:priority)
   end
 
   def destroy
@@ -23,6 +26,9 @@ class VotesController < ApplicationController
       format.html { redirect_to(request.referer) }
       format.js
     end
+
+    @category_priority = @article.category
+    @category_priority.decrement!(:priority)
   end
 
   private

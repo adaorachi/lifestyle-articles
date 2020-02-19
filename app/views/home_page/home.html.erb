@@ -1,32 +1,33 @@
 <div class="main-content">
-  <% if @articles.any? %>
+  <% if article_present(@articles) %>
     <section class="categories-article">
       <div class="categories-article-items">
         <div class="featured-article-content section-content">
-          <%= link_to article_path(Article.featured_article.id) do %>
+          <%= link_to article_path(@featured_article.id) do %>
             
             <div class="image featured-article-image">
-              <%= image_tag(Article.featured_article.featured_image_url(:thumb), alt: Article.featured_article.title)%>
+              <%= image_tag(@featured_article.featured_image_url(:full), alt: @featured_article.title)%>
             </div>
             <div class="cat-title">
-              <h4 class="cat-name"><strong><%= Article.featured_article.category.name.capitalize %></strong></h4>
-              <p><strong><%= Article.featured_article.title %></strong></p>
+              <h4 class="cat-name"><strong><%= @featured_article.category.name.capitalize %></strong></h4>
+              <p><strong><%= @featured_article.title %></strong></p>
             </div>
           <% end %>
         </div>
         <div class="categories-first-article">
-          <% @categories.each do |category| %>
-            <% if category.articles.present? %>
+        
+          <% @category_first_article.each do |category| %>
+            <% if article_present(category.articles) %>
               <div class="first-article-content section-content">
                 <%= link_to categories_path(name: category.name) do %>
                   <div class="image ripple">
                   </div>
                   <div class="cat-image">
-                    <%= image_tag(Article.category_first_article(category).featured_image_url(:full), alt: Article.category_first_article(category).title ) %>
+                    <%= image_tag(category.articles.last.featured_image_url(:full), alt: category.articles.last.title ) %>
                   </div>
                   <div class="cat-title">
                     <h4 class="cat-name"><strong><%= category.name.capitalize %></strong></h4>
-                    <p><strong><%= Article.category_first_article(category).title %></strong></p>
+                    <p><strong><%= category.articles.last.title %></strong></p>
                   </div>
                 <% end %>
               </div>
@@ -40,14 +41,14 @@
       <div class="row article-section-contents">
      
         <div class="col-12 col-md-9 px-4">
-          <% if @articles.any? %>
+          <% if article_present(@articles) %>
             <div class="todays-spotlight mt-4">
               <div class="todays-spotlight-header">
                 <h2>Today's Spotlight</h2>
               </div>
               <div class="spotlight-items">
                 <div class="spotlight-items-article">
-                  <% @articles.take(2).each do |article| %>
+                  <% @article_limit_two.each do |article| %>
                    
                     <div class="section-content card">
                       <%= link_to article_path(article) do %>
@@ -88,14 +89,15 @@
 
           <div class="all-category">
             <% @categories.each do |category_section| %>
-              <% if category_section.articles.any? %>
+              <% if article_present(@articles) %>
                 <div class="all-category-articles">
                   <div class="todays-spotlight-header">
                     <h2><%= category_section.name.capitalize %></h2>
                   </div>
                   <div class="spotlight-items">
                     <div class="spotlight-items-article">
-                      <% category_section.articles.limit(2).each do |category_article| %>
+                    
+                      <% category_article_limit(category_section.articles, 1).each do |category_article| %>
                         <% if category_section.articles.present? %>
                           <div class="section-content card">
                             <%= link_to article_path(category_article.id) do %>
@@ -149,7 +151,8 @@
             </div>
             
             <div class="all-editors-picks">
-              <% @articles.sample(4).each do |picks| %>
+            
+              <% article_random(@articles, 4).each do |picks| %>
                 <div class="editors-picks mb-4 mb-md-0">
                   <div class="spotlight-items">
                     <div class="editors-picks-article">

@@ -5,6 +5,7 @@ class CategoriesController < ApplicationController
     cat = params[:name]
     @category = Category.find_by(name: cat)
     @categories = Category.all
+    @articles_per_category = Article.articles_per_category(@category)
   end
 
   def new
@@ -22,8 +23,6 @@ class CategoriesController < ApplicationController
     end
   end
 
-  def show
-  end
 
   private
 

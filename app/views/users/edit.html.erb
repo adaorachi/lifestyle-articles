@@ -6,8 +6,11 @@
       </div>
       <div class="login-form">
         <div class="sign-up-form">
-          <%= render 'shared/errors' %>
-          <%= form_for(current_user) do |f| %>
+
+          <%= form_for(@user) do |f| %>
+
+            <%= render 'shared/errors', object: f.object %>
+
             <div class="row">
               <div class="col-12 col-sm-6 order-2 order-sm-1">
                 <div class="group">

@@ -9,10 +9,11 @@ class ArticlesController < ApplicationController
 
   def show
     @article = Article.find(params[:id])
-    @articles = Article.all
+    @articles = Article.all_published_articles
     @comment = Comment.new
     @categories = Category.all
-
+    @most_popular_articles = Article.most_popular_articles
+    @all_suggested_articles = Article.all_suggested_article(@article.category.id, @article)
     @pageview = Article.where(author_id: current_user, id: params[:id]).first_or_create
     @pageview.increment!(:views)
   end
@@ -64,27 +65,26 @@ class ArticlesController < ApplicationController
   end
 
   def published_articles
+    @published_articles = Article.user_pub_articles(current_user)
   end
 
   def saved_articles
+    @saved_articles = Article.user_save_articles(current_user)
   end
 
   def bookmarks
+    @bookmarked_articles = Article.user_bookmarks(current_user)
   end
 
   def search
+    @search_param = params[:q]
     @search_articles = Article.search_article(params[:q])
   end
 
   private
 
   def article_params
-    params.required(:article).permit(:title, :text, :tag, :featured_image, :tag_list, :category_id, :author_id, :status)
-  end
-
-  def increment
-    @pageview = Article.where(author_id: current_user, id: params[:id]).first_or_create
-    @pageview.increment!(:views)
+    params.require(:article).permit(:title, :text, :featured_image, :tag_list, :category_id, :author_id, :status)
   end
 
   def logged_in_user_for_bookmark

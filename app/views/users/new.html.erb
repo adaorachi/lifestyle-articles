@@ -7,7 +7,7 @@
         <div class="sign-up-form">
           <%= form_for(@user) do |f| %>
 
-            <%= render 'shared/errors' %>
+            <%= render 'shared/errors', object: f.object %>
 
             <div class="group">
               <%= f.label :name, class: 'label'%>
