@@ -23,8 +23,11 @@
               <% if current_user %>
                 <%= render partial: 'vote_form', locals: {article: @article} %>
               <% else %>
-                <%= link_to votes_path do %>
-                  <%= button_tag fa_icon('arrow-alt-circle-up',  type: :regular), class: "vote-button" %>
+                <%= link_to votes_path, class: "pseudo-vote" do %>
+                  <span class="vote">
+                      <%= button_tag fa_icon("arrow-alt-circle-up", type: :regular), class: "vote-button" %> &nbsp;
+                      <span class="view-no"><%= @article.voters.count %></span>
+                  </span>
                 <% end %>
               <% end %>
               </div>
