@@ -86,6 +86,9 @@ end
     Vote.create!(user_id: v_user_id,
                  article_id: v_article_id)
     
+    article_category = Article.find_by(id: v_article_id)
+    article_category.category.increment!(:priority)
+    
     b_user_id = n+1
     b_article_id = (1..16).to_a.sample
   

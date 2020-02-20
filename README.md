@@ -123,10 +123,10 @@ Then, go to [http://localhost:3000](http://localhost:3000)
 
 
 
-  # How to login as an admin
-  For security purpose, one admin user will be authomatically generated when you seed the database. The admin will have all priviledges and exclusively rights to perform some actions such as creating the categories. Login details are as follows:
-  username: johndoe
-  password: admin123
+  ### How to login as an admin
+  For security purpose, one admin user will be authomatically generated when you seed the database. The admin will have all priviledges and exclusively rights to perform some actions such as creating the categories. Login details are as follows:<br>
+  username: johndoe<br>
+  password: admin123<br>
 
   You can choose to change your username and password once you are logged in.
 
