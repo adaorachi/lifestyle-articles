@@ -16,7 +16,6 @@
                 <h6><%= link_to article.title.titleize, article_path(article) %></h6>              
                 <p><%= string_length(article.text, 80) %></p>
                 <span>By  <%= article.author.name %></span>
-                <span>By  <%= article.id %></span>
                 <div class="attr d-flex justify-content-start align-items-center">
                   <span class="view">
                     <%= fa_icon('arrow-alt-circle-up') %> &nbsp; <span class="view-no"><%= count_all(article.votes) %></span>
