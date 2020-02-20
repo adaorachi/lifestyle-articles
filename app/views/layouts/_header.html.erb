@@ -62,6 +62,11 @@
                   <li class="nav-item prof">
                     <%= link_to "Your Bookmarks", bookmarks_path, class: "#{active_class(bookmarks_path)} nav-link" %> 
                   </li>
+                  <% if current_user.admin %>
+                    <li class="nav-item prof">
+                      <%= link_to "Create Category", new_category_path, class: "#{active_class(new_category_path)} nav-link" %> 
+                    </li>
+                  <% end %>
                   <li class="nav-item last prof">
                     <%= link_to "Logout", logout_path, class: "nav-link", method: :delete %> 
                   </li>

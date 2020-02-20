@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_13_034659) do
+ActiveRecord::Schema.define(version: 2020_02_20_042359) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -82,6 +82,7 @@ ActiveRecord::Schema.define(version: 2020_02_13_034659) do
     t.string "facebook"
     t.string "linkedin"
     t.string "avatar"
+    t.boolean "admin", default: false
   end
 
   create_table "votes", force: :cascade do |t|

@@ -5,7 +5,7 @@ class HomePageController < ApplicationController
     @featured_article_h = Article.featured_article
     @featured_article = Article.featured_article.first
     @category_first_article = Article.category_all_article
-    @categories = Category.all
+    @categories = Category.all_categories
     @most_popular_articles = Article.most_popular_articles
   end
 end

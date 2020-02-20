@@ -83,7 +83,7 @@ The image below is a copy of the Entity Relationship Diagram generated for this 
 <!-- INSTALLATION -->
 ## Installation of This App
 
-Once you have installed the requiered packages shown on the [Required Installations](#required-installations), proceed with the following steps
+Once you have installed the required packages shown on the [Required Installations](#required-installations), proceed with the following steps
 
 Clone the Repository,
 
@@ -120,6 +120,16 @@ your@pc:~$ rails server
 ```
 
 Then, go to [http://localhost:3000](http://localhost:3000)
+
+
+
+  # How to login as an admin
+  For security purpose, one admin user will be authomatically generated when you seed the database. The admin will have all priviledges and exclusively rights to perform some actions such as creating the categories. Login details are as follows:
+  username: johndoe
+  password: admin123
+
+  You can choose to change your username and password once you are logged in.
+
 
 <!-- LICENSE -->
 ## License

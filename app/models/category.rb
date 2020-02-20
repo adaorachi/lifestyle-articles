@@ -3,7 +3,10 @@ class Category < ApplicationRecord
 
   has_many :articles, dependent: :destroy
 
-  validates :name, presence: true, length: { in: 3..8 }
+  validates :name, presence: true, length: { in: 2..8 }
+
+
+  scope :all_categories, -> { includes(:articles) }
 
   def name_with_caps
     self.name.capitalize
