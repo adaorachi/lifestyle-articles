@@ -27,7 +27,9 @@ class Article < ApplicationRecord
   scope :all_published_articles, -> { includes(:category).where('status = ? ', 'published') }
   scope :articles_per_category, ->(category_id) { includes(:author).where('category_id = ? and status = ?', category_id, 'published') }
   scope :category_all_article, -> { Category.includes(:articles).where(articles: { status: "published" }).order(priority: :desc) }
-  scope :featured_article, -> { find_by(id: self.all_published_articles.joins(:votes).group(:id).count.sort_by{|k, v| v}.last[0]) }
+  scope :featured_article, -> { where(id: all_published_articles.joins(:votes).group(:id).count.sort_by{|k, v| v}.last) }
+  # scope :featured, -> { Vote.group(:article_id).count.sort_by{|k,v| v}.last.first }
+  # scope :featured_article, -> { where(id: featured, status: 'published') }
   scope :most_popular_articles, ->  { where(id: Vote.group(:article_id).count.sort_by{|k, v| v}.last(4).map {|a, b| a}) }
   scope :user_pub_articles, ->(current_user) { includes(:author).where('author_id = ? and status = ?', current_user, 'published') }
   scope :user_save_articles, ->(current_user) { includes(:author).where('author_id = ? and status = ?', current_user, 'saved') }

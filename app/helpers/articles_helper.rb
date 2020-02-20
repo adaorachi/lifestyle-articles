@@ -72,4 +72,8 @@ module ArticlesHelper
     model.strftime(time_mode)
   end
 
+  def sort_array(arr)
+    arr.sort().last
+  end
+
 end

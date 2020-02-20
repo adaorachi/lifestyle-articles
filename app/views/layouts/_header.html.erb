@@ -29,7 +29,7 @@
             <li class="nav-item">
               <%= link_to "Home", root_path, class: "#{active_class('/')} nav-link"%>
             </li>
-            <% Category.all.each do |link| %>
+            <% @categories.each do |link| %>
               <li class="nav-item">
                 <%= link_to link.name.capitalize, categories_path(name: link.name), class: "#{get_active_link(link.name)} nav-link"%>
               </li>

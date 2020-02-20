@@ -12,4 +12,8 @@ module UsersHelper
       image_tag(user.avatar_url, alt: user.name, class: class_name)
     end
   end
+
+  def avatar_present(avatar)
+    avatar.present?
+  end
 end

@@ -1,5 +1,5 @@
 <div class="main-content">
-  <% if article_present(@articles) %>
+  <% if article_present(@featured_article_h) %>
     <section class="categories-article">
       <div class="categories-article-items">
         <div class="featured-article-content section-content">
@@ -23,11 +23,11 @@
                   <div class="image ripple">
                   </div>
                   <div class="cat-image">
-                    <%= image_tag(category.articles.last.featured_image_url(:full), alt: category.articles.last.title ) %>
+                    <%= image_tag(sort_array(category.articles).featured_image_url(:full), alt: category.articles.last.title ) %>
                   </div>
                   <div class="cat-title">
                     <h4 class="cat-name"><strong><%= category.name.capitalize %></strong></h4>
-                    <p><strong><%= category.articles.last.title %></strong></p>
+                    <p><strong><%= sort_array(category.articles).title %></strong></p>
                   </div>
                 <% end %>
               </div>

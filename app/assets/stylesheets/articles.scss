@@ -357,6 +357,13 @@
     }
   }
 
+  .group.category-form {
+    width: 50%;
+  }
+  
+
+  // Media Queries
+
   @media only screen and (max-width: 748px) {
     .suggested-article-content {
       display: grid;
@@ -365,12 +372,17 @@
     }
 
     .new-article {
+
       .article-image,
       .drop-zone, 
       .display-avatar {
         width: 100%;
         height: 100%;
+      }
     }
+
+    .group.category-form {
+      width: 100%;
     }
   }
 

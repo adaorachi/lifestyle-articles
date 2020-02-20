@@ -13,7 +13,9 @@ RSpec.describe User, type: :model do
   context 'Associations' do
     it { should have_many(:articles) }
     it { should have_many(:articles).with_foreign_key('author_id').dependent(:destroy) }
+    it { should have_many(:votes) }
     it { should have_many(:voted_articles).through(:votes) }
+    it { should have_many(:bookmarks) }
     it { should have_many(:bookmarked_articles).through(:bookmarks) }
   end
 end
