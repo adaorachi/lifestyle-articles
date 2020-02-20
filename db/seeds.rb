@@ -36,7 +36,7 @@ end
   4.times do |n|
     sen_count = 25 * (n+1)
 
-    title = Faker::Book.title[3..50].capitalize
+    title = Faker::Book.title[0..50].titleize
     text = Faker::Lorem.paragraph(sentence_count: sen_count)
     featured_image = Faker::LoremFlickr.image(size: "1500x1200", search_terms: [categories[m]])
     category_id = m+1
