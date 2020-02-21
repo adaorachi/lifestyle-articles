@@ -505,7 +505,7 @@ button.input {
       top: 0;
       background-color: $primary_color2;
       margin-top: 50px;
-      height: 100vh;
+      height: calc(100vh-50px);
       transform: translateX(-100%);
       opacity: 0;
       transition: transform, opacity;
