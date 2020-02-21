@@ -13,6 +13,7 @@ gem 'simple_form'
 gem 'wysiwyg-rails'
 gem 'trix'
 gem 'fog-aws'
+gem 'aws-sdk-s3', '~> 1'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

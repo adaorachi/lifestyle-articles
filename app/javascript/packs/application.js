@@ -79,9 +79,9 @@ $(document).on('turbolinks:load', function(){
 				'height' : '100%',
 		 });
 
-		 $('#article-featured').css({
-			'height' : 'auto',
-	 		});
+		//  $('#article-featured').css({
+		// 	'height' : 'auto',
+	 	// 	});
 		 
 			$('#drop_zone').css({
 				'width': '100%',

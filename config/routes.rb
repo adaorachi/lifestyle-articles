@@ -10,13 +10,14 @@ Rails.application.routes.draw do
   get 'saved_articles', to: 'articles#saved_articles'
   get 'bookmarks', to: 'articles#bookmarks'
   get 'search', to: 'articles#search'
+  get 'create_category', to: 'categories#new'
 
   get 'profile', to: 'users#show'
   get '/edit_profile', to: 'users#edit'
 
   resources :users, except: [:show, :edit]
-  resources :articles, except: [:index]
-  resources :categories, only: [:index, :new, :create, :destroy]
+  resources :articles
+  resources :categories, only: [:index, :create, :destroy]
   resources :comments, only: [:new, :create]
   resources :votes, only: [:index, :create, :destroy]
   resources :bookmarks, only: [:index, :create, :destroy]

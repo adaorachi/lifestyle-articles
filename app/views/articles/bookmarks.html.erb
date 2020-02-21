@@ -18,10 +18,22 @@
                 <span>By  <%= article.author.name %></span>
                 <div class="attr d-flex justify-content-start align-items-center">
                   <span class="view">
-                    <%= fa_icon('arrow-alt-circle-up') %> &nbsp; <span class="view-no"><%= count_all(article.votes) %></span>
+                    <% if count_all(article.votes).positive? %>
+                      <%= fa_icon('arrow-alt-circle-up') %> &nbsp; 
+                      <span class="view-no"><%= count_all(article.votes) %></span>
+                    <% else %>
+                      <%= fa_icon("arrow-alt-circle-up", class: "vote-button text-dark" )%> &nbsp;
+                      <span class="view-no"><%= count_all(article.votes) %></span>
+                    <% end %>
                   </span>
                   <span class="comment">
-                    <%= fa_icon('comment-alt') %> &nbsp; <span class="view-no"><%= count_all(article.comments) %></span>
+                    <% if count_all(article.comments).positive? %>
+                      <%= fa_icon('comment-alt') %> &nbsp; 
+                      <span class="view-no"><%= count_all(article.comments) %></span>
+                    <% else %>
+                      <%= fa_icon('comment-alt', class: "text-dark") %> &nbsp; 
+                      <span class="view-no"><%= count_all(article.comments) %></span>
+                    <% end %>
                   </span>
                   <span class="min-read">
                     <%= min_read(article.text) %> mins read

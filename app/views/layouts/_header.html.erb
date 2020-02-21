@@ -64,7 +64,7 @@
                   </li>
                   <% if current_user.admin %>
                     <li class="nav-item prof">
-                      <%= link_to "Create Category", new_category_path, class: "#{active_class(new_category_path)} nav-link" %> 
+                      <%= link_to "Create Category", create_category_path, class: "#{active_class(create_category_path)} nav-link" %> 
                     </li>
                   <% end %>
                   <li class="nav-item last prof">

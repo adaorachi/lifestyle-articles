@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 2020_02_20_042359) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
-    t.integer "priority"
+    t.integer "priority", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -73,14 +73,12 @@ ActiveRecord::Schema.define(version: 2020_02_20_042359) do
     t.string "name"
     t.string "username"
     t.string "email"
-    t.string "profile_image"
     t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "remember_digest"
     t.string "twitter"
     t.string "facebook"
-    t.string "linkedin"
     t.string "avatar"
     t.boolean "admin", default: false
   end

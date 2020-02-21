@@ -24,15 +24,15 @@ class Article < ApplicationRecord
   validates :author_id, presence: true
   validates :category_id, presence: true
 
+
   scope :all_published_articles, -> { includes(:category).where('status = ? ', 'published') }
   scope :articles_per_category, ->(category_id) { includes(:author).where('category_id = ? and status = ?', category_id, 'published') }
   scope :category_all_article, -> { Category.includes(:articles).where(articles: { status: "published" }).order(priority: :desc) }
-  scope :featured_article, -> { find_by(id: Vote.group(:article_id).count.sort_by{|k, v| v}.last.first) }
-  scope :most_popular_articles, ->  { where(id: Vote.group(:article_id).count.sort_by{|k, v| v}.last(4).map {|a, b| a}) }
-  scope :user_pub_articles, ->(current_user) { includes(:author).where('author_id = ? and status = ?', current_user, 'published') }
-  scope :user_save_articles, ->(current_user) { includes(:author).where('author_id = ? and status = ?', current_user, 'saved') }
+  scope :featured_article, -> { self.all_published_articles.joins(:votes).group(:id).count.sort_by{|k, v| v}.last }
+  scope :most_popular_articles, ->  { where(id: self.all_published_articles.joins(:votes).group(:id).count.sort_by{|k, v| v}.last(4).map {|a, b| a}) }
+  scope :user_pub_articles, ->(current_user) { where('author_id = ? and status = ?', current_user, 'published') }
+  scope :user_save_articles, ->(current_user) { where('author_id = ? and status = ?', current_user, 'saved') }
   scope :user_bookmarks, ->(current_user) { includes(:author).joins(:bookmarks).where('user_id = ? ', current_user) }
-  
   scope :suggested_article, ->(tag, category_id) { self.all_published_articles.joins(:taggings).where('tag_id = ? or category_id = ? ', tag, category_id) }
 
   default_scope -> { order(created_at: :desc) }

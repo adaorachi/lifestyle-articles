@@ -26,7 +26,7 @@
                 <%= link_to votes_path, class: "pseudo-vote" do %>
                   <span class="vote">
                       <%= button_tag fa_icon("arrow-alt-circle-up", type: :regular), class: "vote-button" %> &nbsp;
-                      <span class="view-no"><%= @article.voters.count %></span>
+                      <span class="view-no"><%= count_all(@article.votes) %></span>
                   </span>
                 <% end %>
               <% end %>

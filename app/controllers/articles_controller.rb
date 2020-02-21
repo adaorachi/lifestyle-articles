@@ -2,6 +2,10 @@ class ArticlesController < ApplicationController
   before_action :logged_in_user_for_bookmark, only: [:bookmarks]
   before_action :logged_in_user, except: [:show, :bookmarks, :search]
   before_action :non_editing_published_articles, only: [:edit, :update]
+  before_action :redirect_index_page, only: [:index]
+
+  def index
+  end
 
   def new
     @article = Article.new
@@ -64,6 +68,13 @@ class ArticlesController < ApplicationController
     end
   end
 
+  def destroy
+    @delete_article = Article.find(params[:id])
+    @delete_article.destroy
+    flash['alert-warning'] = 'Your article has been succesfully deleted!'
+    redirect_to saved_articles_path
+  end
+
   def published_articles
     @published_articles = Article.user_pub_articles(current_user)
   end
@@ -92,6 +103,10 @@ class ArticlesController < ApplicationController
       flash['alert-danger'] = 'You must be logged in to bookmark an article!'
       redirect_to(request.referer)
     end
+  end
+
+  def redirect_index_page
+    redirect_to(request.referer)
   end
 
   def non_editing_published_articles

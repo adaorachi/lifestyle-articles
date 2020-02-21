@@ -13,8 +13,9 @@ User.create!(name:      "John Doe",
              admin:     true)
 
 categories = ['design', 'style', 'travel', 'food']
+arr = [1,2,3,4,6,7,8,9,11,12,13,14,16]
 
-4.times do |n|
+3.times do |n|
   u_name = Faker::Name.unique.name
   username = Faker::Internet.user_name
   email = "example-#{n+1}@railstutorial.org"
@@ -24,7 +25,9 @@ categories = ['design', 'style', 'travel', 'food']
               username: username,
               email: email,
               password: password)
+end
 
+4.times do |n|
   c_name = categories[n]
   priority = 0
 
@@ -38,7 +41,7 @@ end
 
     title = Faker::Book.title[0..50].titleize
     text = Faker::Lorem.paragraph(sentence_count: sen_count)
-    featured_image = Faker::LoremFlickr.image(size: "1500x1200", search_terms: [categories[m]])
+    featured_image = File.open(File.join(Rails.root, "app/assets/images/sleezy-photos/#{categories[m]}-#{n+1}.jpg"))
     category_id = m+1
     status = "published"
     author_id = n+1
@@ -47,7 +50,7 @@ end
 
     article = Article.create!(title: title,
                               text: text,
-                              remote_featured_image_url: featured_image,
+                              featured_image: featured_image,
                               author_id: author_id,
                               category_id: category_id,
                               status: status,
@@ -56,9 +59,9 @@ end
 
   end
 
-    title = Faker::Book.title[3..50].capitalize
+    title = Faker::Book.title[0..50].titleize
     text = Faker::Lorem.paragraph(sentence_count: 60)
-    featured_image = Faker::LoremFlickr.image(size: "1500x1200", search_terms: [categories[m]])
+    featured_image = File.open(File.join(Rails.root, "app/assets/images/sleezy-photos/#{categories[m]}-6.jpg"))
     category_id = m+1
     status = "saved"
     author_id = m+1
@@ -67,7 +70,7 @@ end
 
     article = Article.create!(title: title,
                               text: text,
-                              remote_featured_image_url: featured_image,
+                              featured_image: featured_image,
                               author_id: author_id,
                               category_id: category_id,
                               status: status,
@@ -81,7 +84,7 @@ end
 4.times do
   4.times do |n|
     v_user_id = n+1
-    v_article_id = (1..10).to_a.sample
+    v_article_id = (arr - [v_article_id]).sample
   
     Vote.create!(user_id: v_user_id,
                  article_id: v_article_id)
@@ -90,14 +93,14 @@ end
     article_category.category.increment!(:priority)
     
     b_user_id = n+1
-    b_article_id = (1..16).to_a.sample
+    b_article_id = (arr - [b_article_id]).sample
   
     Bookmark.create!(user_id: b_user_id,
                      article_id: b_article_id)
     
     com_name = Faker::Name.unique.name
     body = Faker::Lorem.paragraph(sentence_count: 8)
-    com_article_id = (1..16).to_a.sample
+    com_article_id = (arr - [com_article_id]).sample
 
   
     Comment.create!(name: com_name,
