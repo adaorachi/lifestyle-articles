@@ -17,14 +17,14 @@ arr = [1,2,3,4,6,7,8,9,11,12,13,14,16]
 
 3.times do |n|
   u_name = Faker::Name.unique.name
-  username = Faker::Internet.user_name
-  email = "example-#{n+1}@railstutorial.org"
-  password = 'password'
+  u_username = Faker::Internet.user_name
+  u_email = "example-#{n+1}@railstutorial.org"
+  u_password = 'password'
 
   user = User.create!(name: u_name,
-              username: username,
-              email: email,
-              password: password)
+              username: u_username,
+              email: u_email,
+              password: u_password)
 end
 
 4.times do |n|
