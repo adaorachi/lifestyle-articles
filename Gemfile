@@ -14,6 +14,8 @@ gem 'wysiwyg-rails'
 gem 'trix'
 gem 'fog-aws'
 gem 'aws-sdk-s3', '~> 1'
+gem 'will_paginate',           '3.1.6'
+gem 'bootstrap-will_paginate', '1.0.0'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
