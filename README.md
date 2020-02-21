@@ -58,9 +58,10 @@ This is the link to the live preview in Heroku. Feel free to visit.<br>
 * Users can signup/login and create articles to publish.
 * Users can save articles for future editing.
 * Users can vote an article.
-* Users bookmark articles for future reads.
+* Users can bookmark articles for future reads.
 * Readers/Users can comment on articles.
 * Users can search for articles by their titles.
+* Images are hosted in Amazon S3 cloud storage on production.
 
 <!-- ERD -->
 ## Data Architecture Documentation (ERD)
@@ -103,7 +104,11 @@ install gems
 your@pc:~$ bundle install --without production
 ```
 
-migrate and seed the database
+create, migrate and seed the database
+
+```Shell
+your@pc:~$ rails db:create
+```
 
 ```Shell
 your@pc:~$ rails db:migrate
