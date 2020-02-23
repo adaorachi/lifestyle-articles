@@ -3,7 +3,6 @@ class AddColumnsToUsers < ActiveRecord::Migration[6.0]
     add_column :users, :twitter, :string
     add_column :users, :facebook, :string
     add_column :users, :avatar, :string
-    remove_column :articles, :tag
     remove_column :users, :profile_image
     
   end
