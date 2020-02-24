@@ -18,7 +18,7 @@ This project is a Lifestyle Articles Web application built with rails. It implem
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-This project is a Lifestyle Articles application. In this project, users can sign up using their username only. Once a user becomes a member, such user can be able to create articles for readers to read, edit their profile, comment on an articles. That user can also vote for articles and bookmark articles for future reads. A reader can use the app whether he/she is a member or not but is limited to features they can access. Such reader can only read and comments on other articles. The main goal is to build a full-fledged web app in real time and also in practice the main concepts of MVC, Model Associations, Session Authentications with devise bcrypt, and units & integration testing with RSpec and Capybara.
+This project is a Lifestyle Articles web application. In this project, users can sign up using their username only. Once a user becomes a member, such user can be able to create articles for readers to read, edit their profile, comment on an articles. That user can also vote for articles and bookmark articles for future reads. A reader can use the app whether he/she is a member or not but is limited to features they can access. Such reader can only read and comments on other articles. The main goal is to build a full-fledged web app in real time and also practice the main concepts of MVC, Model Associations, Session Authentications with bcrypt, and perform units & integration testing with RSpec and Capybara.
 
 
 <!-- BUILT WITH -->
@@ -42,12 +42,15 @@ This is the link to the live preview in Heroku. Feel free to visit.<br>
   <thead>
     <tr>
       <th>Larger Screen View</th>
+      <th></th>
+      <th></th>
       <th>Smaller Screen View</th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td rowspan=3><img src="app/assets/images/sleezy-app.jpg" alt="Larger Screen View"></td>
+      <td rowspan=3><img src="app/assets/images/sleezy-snap.jpg" alt="Larger Screen View"></td>
       <td rowspan=2><img src="app/assets/images/sleezy-app-recording.gif" alt="Smaller Screen View"></td>
     </tr>
   </tbody>
@@ -118,7 +121,13 @@ your@pc:~$ rails db:migrate
 your@pc:~$ rails db:seed
 ```
 
-Run the app in a local server:
+If you run into any problem while performing any of the last three commands, running the following command will drop the database and initialize those commands automatically.
+
+```Shell
+your@pc:~$ rails db:reset
+```
+
+Finally, run the app in a local server:
 
 ```Shell
 your@pc:~$ rails server
@@ -129,7 +138,7 @@ Then, go to [http://localhost:3000](http://localhost:3000)
 
 
   ### How to login as an admin
-  For security purpose, one admin user will be authomatically generated when you seed the database. The admin will have all priviledges and exclusively rights to perform some actions such as creating the categories. Login details are as follows:<br>
+  For security purpose, one admin user will be automatically generated when you seed the database. The admin will have all priviledges and exclusively rights to perform some actions such as creating the categories. Login details are as follows:<br>
   username: johndoe<br>
   password: admin123<br>
 
