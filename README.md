@@ -38,23 +38,9 @@ This is the link to the live preview in Heroku. Feel free to visit.<br>
 <a href="https://sleezy-lifestyle.herokuapp.com">Sleezy - Lifestyle Articles Web App</a> <br>
 <p>Below are the HomePage Screenshots</p>
 
-<table>
-  <thead>
-    <tr>
-      <th>Larger Screen View</th>
-      <th></th>
-      <th></th>
-      <th>Smaller Screen View</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td rowspan=3><img src="app/assets/images/sleezy-snap.jpg" alt="Larger Screen View"></td>
-      <td rowspan=2><img src="app/assets/images/sleezy-app-recording.gif" alt="Smaller Screen View"></td>
-    </tr>
-  </tbody>
-</table>
+<img src="app/assets/images/sleezy-snap.jpg" alt="Larger Screen View"><br>
+<img src="app/assets/images/sleezy-app-recording.gif" alt="Smaller Screen View"><br>
+
 
 ## Features
 
