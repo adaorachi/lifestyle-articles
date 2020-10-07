@@ -1,6 +1,6 @@
 # SLEEZY - LIFESTYLE ARTICLES WEB APP PROJECT
 
-This project is a Lifestyle Articles Web application built with rails. It implements the basic functionality found on the popular lifestyle websites. Its a website where writers can write on things they care about based on the article categories. 
+This project is a Lifestyle Articles Web application built with rails. It implements the basic functionality found on the popular lifestyle websites. It's a website where writers can write on things they care about based on the article categories. 
 
 ## Table of Contents
 
@@ -18,7 +18,7 @@ This project is a Lifestyle Articles Web application built with rails. It implem
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-This project is a Lifestyle Articles web application. In this project, users can sign up using their username only. Once a user becomes a member, such user can be able to create articles for readers to read, edit their profile, comment on an articles. That user can also vote for articles and bookmark articles for future reads. A reader can use the app whether he/she is a member or not but is limited to features they can access. Such reader can only read and comments on other articles. The main goal is to build a full-fledged web app in real time and also practice the main concepts of MVC, Model Associations, Session Authentications with bcrypt, and perform units & integration testing with RSpec and Capybara.
+This project is a Lifestyle Articles web application. In this project, users can sign up using their usernames only. Once a user becomes a member, such a user can be able to create articles for readers to read, edit their profile, comment on articles. That user can also vote for articles and bookmark articles for future reads. A reader can use the app whether he/she is a member or not but is limited to features they can access. Such a reader can only read and comments on other articles. The main goal is to build a full-fledged web app in real-time and also practice the main concepts of MVC, Model Associations, Session Authentications with bcrypt, and perform units & integration testing with RSpec and Capybara.
 
 
 <!-- BUILT WITH -->
@@ -124,11 +124,32 @@ Then, go to [http://localhost:3000](http://localhost:3000)
 
 
   ### How to login as an admin
-  For security purpose, one admin user will be automatically generated when you seed the database. The admin will have all priviledges and exclusively rights to perform some actions such as creating the categories. Login details are as follows:<br>
+  For security purposes, one admin user will be automatically generated when you seed the database. The admin will have all privileges and exclusive rights to perform some actions such as creating the categories. Login details are as follows:<br>
   username: johndoe<br>
   password: admin123<br>
 
   You can choose to change your username and password once you are logged in.
+
+## Test Run
+
+To run the unit test, follow these steps.
+
+Open a terminal
+
+Install the rspec gem if you have not already
+
+```Shell
+your@pc:~$ gem install rspec
+```
+
+Run RSpec in the terminal
+
+```Shell
+your@pc:~$ rspec
+```
+
+## Future Features
+Some of the features or improvements I would like to implement on this project is to add more unit test to the test suite.
 
 
 <!-- LICENSE -->
@@ -142,4 +163,4 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
-I would like to credit <a href="https://www.behance.net/sakwadesignstudio">Nelson Sakwa</a> for his behance design ideas which I used in creating this app. The project's color, typograpy and layouts were gotten from this design. The design can be seen <a href="https://www.behance.net/gallery/14554909/liFEsTlye-Mobile-version"></a>. I really love the design.
+I would like to credit <a href="https://www.behance.net/sakwadesignstudio">Nelson Sakwa</a> for his Behance design ideas which I used in creating this app. The project's color, typography, and layouts were gotten from this design. The design can be seen <a href="https://www.behance.net/gallery/14554909/liFEsTlye-Mobile-version"></a>. I love the design.
