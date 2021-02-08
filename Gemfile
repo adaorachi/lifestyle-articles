@@ -5,7 +5,7 @@ ruby '2.6.4'
 
 # Custom gem
 gem 'jquery-rails'
-gem 'carrierwave', '~> 2.0'
+gem 'carrierwave', '~> 2.1'
 gem 'faker'
 gem 'font_awesome5_rails'
 gem 'mini_magick'
